@@ -1,5 +1,6 @@
 import { INITIAL_FRAMES, PATH_ENGINE_IMAGE, PATH_ENGINE_SPRITES, PATH_SPACESHIP_IMAGE } from "../utils/constants.js";
 import Projectile from "./Projectile.js";
+
 class Player {
     width;
     height;
@@ -34,9 +35,7 @@ class Player {
 
     draw(ctx){
         //ctx.fillStyle = "red";
-        //ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
- 
-           
+        //ctx.fillRect(this.position.x, this.position.y, this.width, this.height);  
        
         ctx.drawImage(
             this.image, 
@@ -70,7 +69,6 @@ class Player {
     }
 
     update(){
-
         if(this.framesCounter === 0){
             if(this.sx === 96){
                 this.sx = 0;
@@ -90,12 +88,12 @@ class Player {
         this.position.x += this.velocity;
     }
 
-    shoot(projectiles){
+    shoot(projectiles){//parametro um array/lista
         const p = new Projectile({
-                x: this.position.x + this.width / 2,
-                y: this.position.y,
+                x: this.position.x + this.width / 2 - 1, //position of the projectile
+                y: this.position.y + 2,                  //position of the projectile   
             }, 
-            -5
+         15 //velocity of shoot
         );
         projectiles.push(p); 
     }

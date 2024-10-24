@@ -11,7 +11,7 @@ class Projectile{
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
     update(){
-        this.position.y -= 1;      
+        this.position.y -= this.velocity;      
     }
 }
 export default Projectile;
