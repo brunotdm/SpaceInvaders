@@ -31,12 +31,23 @@ const drawProjectiles = () => {
     });
 };
 
+const clearProjectile = () => {
+    playerProjectiles.forEach((projectile, index) => {
+        if(projectile.position.y <= 0){
+            playerProjectiles.splice(index, 1);
+        }
+    });
+
+};
+
 const gameLoop = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     //p.draw(ctx);
     //p.update();
     drawProjectiles();
+    clearProjectile();
+    console.log(playerProjectiles);
     ctx.save();
 
     //Altera o eixo de rotação. Antes o eixo estava como 0,0 do Canva e depois passa a ser o centro do Player.
